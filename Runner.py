@@ -47,6 +47,12 @@ def getTops(tempL, tempH):
         options[0] = 'short-sleeve T'
         options.append('jacket')
 
+    if (options.count('coat') > 1):
+        options[options.index('coat')] = 'jacket'
+
+    if (options.count('jacket') > 1):
+        options[options.index('jacket')] = 'hoodie/sweatshirt'
+
     if ('short-sleeve T' in options and 'long-sleeve T' in options):
         options.remove('short-sleeve T')
         options[0] = 'hoodie/sweatshirt'
