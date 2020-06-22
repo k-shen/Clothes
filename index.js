@@ -4,7 +4,7 @@ var units = '&units=imperial';
 
 var input = document.getElementById('city');
 input.addEventListener('keyup', function(event) {
-  if (event.keyCode === 13) {
+  if (event.keyCode === 'Enter') {
    event.preventDefault();
    document.getElementById('myButton').click();
   }
