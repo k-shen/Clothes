@@ -137,9 +137,15 @@ function showData(data) {
     if (wind > 20) {
         document.getElementById('wind').innerText = 'windy';
         document.getElementById('wind').style.display = 'inline';
+
+        document.getElementById('gear').innerText = 'bring wind gear';
+        document.getElementById('gear').className = 'wind';
+        document.getElementById('gear').style.display = 'inline'
+
     } else if (wind > 10) {
         document.getElementById('wind').innerText = 'breezy';
         document.getElementById('wind').style.display = 'inline';
+
     }
 
     document.getElementById('resultWeather').style.display = 'block';
