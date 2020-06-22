@@ -3,8 +3,8 @@ var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
 
 var input = document.getElementById('city');
-input.addEventListener('keyup', function(event) {
-  if (event.keyCode === 'Enter') {
+input.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
    event.preventDefault();
    document.getElementById('myButton').click();
   }
