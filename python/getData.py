@@ -17,12 +17,10 @@ def printout(weather):
     tempMin = weather['main']['temp_min']
     tempMax = weather['main']['temp_max']
     country = weather['sys']['country']
+    final_str = "Country: %s \nCity: %s\nConditions: %s \nLow temperature (F): %s\nHigh temperature (F): %s"\
+            %(country, name, description, tempMin, tempMax)
+    print(final_str)
     lowT = float(tempMin)
     highT = float(tempMax)
-    lowTF = (lowT-32)*5/9
-    highTF = (highT-32)*5/9
-    final_str = "Country: %s \nCity: %s\nConditions: %s \nLow temperature (F or C): %sF or %.1fC\nHigh temperature (F or C): %sF or %.1fC"\
-            %(country, name, description, tempMin, lowTF, tempMax, highTF)
-    print(final_str)
-    
     return lowT, highT
+

@@ -1,4 +1,4 @@
-from getData import *
+from getData import*
 
 def main():
     city = input("What city are you in:")
@@ -73,5 +73,4 @@ def getLayers(temp, topn):
     output = output.strip()
     return output
     
-if __name__ == '__main__':
-    main()
+        
