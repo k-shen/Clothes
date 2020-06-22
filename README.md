@@ -1,2 +1,2 @@
-# Clothes
-Indicate the type of clothing given the temperature
+# Clothes Choice
+Uses weather API to indicate the type of clothing given the temperature/weather conditions.
