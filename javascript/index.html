@@ -1,0 +1,46 @@
+<DOCTYPE! html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="mystyle.css"></link>
+    <script src='index.js'></script>
+
+<body onload='startTime()' id='body'>
+    <div>
+        <p class='welcome'>welcome to clothes choice</p>
+        <p id='time' class='time'></p>
+        <p class='input'>enter city or zip code: <input type='text' id='city' name='city' />
+        <button onclick='getWeather()'>go!</button> </p>
+
+        <div id='falseMessage' class='errorMessage' style='display:none'>
+            <span>sorry, we do not have weather info for the city you entered :(</span>
+        </div>
+        <div id='workingMessage' class='workingMessage' style='display:none'>
+            <span>we are gathering data, just a sec... </span>
+        </div>
+
+        <div id='resultWeather' class='workingMessage' style='display:none'>
+            <div>
+            <span>temperature is <label id='lowTemp' class='lowTemp'></label> ~ 
+                <label id='highTemp' class='highTemp'></label>, feels like <label id='feelTemp' class='feelTemp'>0</label>
+                <label class="switch"> <input type="checkbox" id="togBtn" onclick='switchCF()'><div class="slider round"></div></label>
+            </span>
+            <br>
+            <span><label id='wind' class='wind' style='display:none'></label> with 
+            <label id='condition'></label> <br></span>
+            </div>
+            <br>
+            <div>
+            <span>top: <span id='top'></span></span>
+            <br>
+            <span>bottom: <span id='bottom'></span></span>
+            <br>
+            <p id='gear' style='display:none'></p>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+
+</html>
