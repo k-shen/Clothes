@@ -2,7 +2,7 @@ var key ='&APPID=1f6e1cfcec0147bb3d657685e0881a06';
 var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
 
-var input = document.getElementById("myInput");
+var input = document.getElementById("city");
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
