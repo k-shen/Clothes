@@ -3,6 +3,7 @@ var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
 
 var input = document.getElementById('city');
+console.log(input);
 input.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
@@ -37,6 +38,7 @@ class Clothes {
 
 var tops = [];
 var bottoms = [];
+
 tops.push(new Clothes('short T', 5, 'top'));
 tops.push(new Clothes('long T', 8, 'top'));
 tops.push(new Clothes('hoodie/sweatshirt', 18, 'top'));
@@ -208,7 +210,7 @@ function getTops() {
     if (max(temp_feel, temp_low) > 85 || temp_high > 95) {
         var tank = new Clothes('tanks', 3, 'top');
         tank.show();
-        return
+        return;
     } else if (max(temp_feel, temp_low) > 72) {
         tops[0].show();
         return;
@@ -252,7 +254,7 @@ function getBottoms() {
 
 function getLayers(diff) {
     idx = []
-    
+
     for (var i = tops.length - 1; i >= 0; i--) {
         if (diff > tops[i].temp) {
             idx.push(i);
