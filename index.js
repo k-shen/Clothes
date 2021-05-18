@@ -1,7 +1,6 @@
 var key ='&APPID=1f6e1cfcec0147bb3d657685e0881a06';
 var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
-import Clothes from './src/Clothes';
 
 var input = document.getElementById('city');
 input.addEventListener('keydown', function(event) {
