@@ -33,6 +33,7 @@ class Clothes {
         var word = document.createTextNode('+ ' + this.name + ' ');
         doc.appendChild(word);
         document.getElementById(this.id).appendChild(doc);
+        console.log(document.getElementById(this.id));
     }
 }
 
@@ -254,7 +255,7 @@ function getBottoms() {
 
 function getLayers(diff) {
     idx = []
-
+    console.log(tops);
     for (var i = tops.length - 1; i >= 0; i--) {
         if (diff > tops[i].temp) {
             idx.push(i);
