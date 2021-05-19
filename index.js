@@ -1,6 +1,33 @@
-var key ='&APPID=1f6e1cfcec0147bb3d657685e0881a06';
-var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
+var weather_key ='&APPID=1f6e1cfcec0147bb3d657685e0881a06';
+var weather_preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
+var loc_key = "28bad7be9e191b1481052cdca286dd85";
+var loc_preurl = "http://api.ipstack.com/check?access_key="
+
+
+
+function current_loc () {
+    var url = loc_preurl + loc_key;
+    fetch(url) 
+    .then(res => res.json())
+    .catch(error => {
+        if (error) {
+            document.getElementById('falseMessage').style.display = 'block';
+        }
+        console.log('ERROR')})
+    .then(data => process_loc(data))
+}
+
+function process_loc(data) {
+    if (data.cod == 404) {
+        document.getElementById('dedaultLoc').style.display = 'block';
+        console.log('ERROR');
+        return;
+    }
+
+    var city = data.city;
+    document.getElementById('city').value = city;
+}
 
 var input = document.getElementById('city');
 input.addEventListener('keydown', function(event) {
@@ -44,7 +71,7 @@ bottoms.push(new Clothes('shorts', 3, 'bottom'));
 bottoms.push(new Clothes('light pants/light joggers', 5, 'bottom'));
 bottoms.push(new Clothes('heavy pants/heavy joggers', 8, 'bottom'));
 
-function startTime() {
+function start() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
@@ -55,6 +82,7 @@ function startTime() {
     h + ":" + m + ":" + s;
     //var t = setTimeout(startTime, 500);
     document.body.style.backgroundImage = "url('imgs/chill.jpeg')";
+    current_loc();
 }
 
 function checkTime(i) {
@@ -76,7 +104,7 @@ function getWeather() {
         btmBlock.removeChild(btmBlock.firstChild)
     }
 
-    var url = preurl + document.getElementById('city').value + key + units;
+    var url = weather_preurl + document.getElementById('city').value + weather_key + units;
     
     //fetch(url).then(res => res.json()).then(data => console.log(data))
     fetch(url) 

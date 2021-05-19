@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="mystyle.css"></link>
     
 
-<body onload='startTime()' id='body'>
+<body onload='start()' id='body'>
     <div>
         <p class='welcome'>welcome to clothes choice</p>
         <p id='time' class='time'></p>
@@ -14,6 +14,9 @@
 
         <div id='falseMessage' class='errorMessage' style='display:none'>
             <span>sorry, we do not have weather info for the city you entered :(</span>
+        </div>
+        <div id='defaultLoc' class='errorMessage' style='display:none'>
+            <span>sorry, cannot access your current location :(</span>
         </div>
         <div id='workingMessage' class='workingMessage' style='display:none'>
             <span>we are gathering data, just a sec... </span>
