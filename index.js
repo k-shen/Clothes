@@ -36,19 +36,6 @@ class Clothes {
     }
 }
 
-var tops = [];
-var bottoms = [];
-
-tops.push(new Clothes('short T', 5, 'top'));
-tops.push(new Clothes('long T', 8, 'top'));
-tops.push(new Clothes('hoodie/sweatshirt', 18, 'top'));
-tops.push(new Clothes('jacket', 25, 'top'));
-tops.push(new Clothes('coat', 40, 'top'));
-
-bottoms.push(new Clothes('shorts', 3, 'bottom'));
-bottoms.push(new Clothes('light pants/light joggers', 5, 'bottom'));
-bottoms.push(new Clothes('heavy pants/heavy joggers', 8, 'bottom'));
-
 function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -199,6 +186,19 @@ function conversion (fahren) {
 function mph_kph (mph) {
     return (mph * 1.60934).toFixed(0);
 }
+
+var tops = [];
+var bottoms = [];
+
+tops.push(new Clothes('short T', 5, 'top'));
+tops.push(new Clothes('long T', 8, 'top'));
+tops.push(new Clothes('hoodie/sweatshirt', 18, 'top'));
+tops.push(new Clothes('jacket', 25, 'top'));
+tops.push(new Clothes('coat', 40, 'top'));
+
+bottoms.push(new Clothes('shorts', 3, 'bottom'));
+bottoms.push(new Clothes('light pants/light joggers', 5, 'bottom'));
+bottoms.push(new Clothes('heavy pants/heavy joggers', 8, 'bottom'));
 
 function getClothes() {
     getTops();
