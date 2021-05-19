@@ -81,7 +81,7 @@ function getWeather() {
     var url = preurl + document.getElementById('city').value + key + units;
     
     //fetch(url).then(res => res.json()).then(data => console.log(data))
-    fetch(url)
+    fetch(url) 
     .then(res => res.json())
     .catch(error => {
         if (error) {
