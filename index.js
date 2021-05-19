@@ -53,7 +53,8 @@ function startTime() {
     s = checkTime(s);
     document.getElementById('time').innerHTML =
     h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
+    //var t = setTimeout(startTime, 500);
+    document.body.style.backgroundImage = "url('imgs/chill.jpeg')";
 }
 
 function checkTime(i) {
@@ -107,25 +108,30 @@ function showData(data) {
 
     if (condition == 'clouds') {
         document.getElementById('condition').className = 'clouds';
+        document.body.style.backgroundImage = "url('imgs/cloudy.gif')";
 
     } else if (condition == 'rain') {
         document.getElementById('condition').className = 'rain';
         document.getElementById('gear').innerText = 'bring rain gear';
         document.getElementById('gear').className = 'rain';
-        document.getElementById('gear').style.display = 'inline'
+        document.getElementById('gear').style.display = 'inline';
+        document.body.style.backgroundImage = "url('imgs/rainy.gif')";
 
     } else if (condition == 'clear') {
         condition = 'sun'
         document.getElementById('condition').className = 'sun';
+        document.body.style.backgroundImage = "url('imgs/sunny.jpeg')";
 
     } else if (condition == 'snow') {
         document.getElementById('condition').className = 'snow';
+        document.body.style.backgroundImage = "url('imgs/snowy.gif')";
 
     } else if (condition == 'thunderstorm') {
         document.getElementById('condition').className = 'thunder';
         document.getElementById('gear').innerText = 'bring rain gear';
         document.getElementById('gear').className = 'thunder';
-        document.getElementById('gear').style.display = 'inline'
+        document.getElementById('gear').style.display = 'inline';
+        document.body.style.backgroundImage = "url('imgs/thunderstorm.gif')";
     }
 
     document.getElementById('lowTemp').innerText = temp_low;
