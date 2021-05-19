@@ -43,6 +43,9 @@ var condition;
 var temp_high;
 var temp_low;
 var temp_feel;
+var sun_rise;
+var sun_set;
+var wind;
 
 class Clothes {
     constructor(name, temp, id) {
@@ -130,9 +133,11 @@ function showData(data) {
     temp_high = result.main.temp_max;
     temp_low = result.main.temp_min;
     temp_feel = result.main.feels_like;
+    sun_rise = result.sys.sunrise;
+    sun_set = result.sys.sunset;
 
     condition = result.weather[0].main.toLowerCase();
-    var wind = result.wind.speed;
+    wind = result.wind.speed;
 
     if (condition == 'clouds') {
         document.getElementById('condition').className = 'clouds';
@@ -168,7 +173,7 @@ function showData(data) {
 
     document.getElementById('condition').innerText = condition;
 
-    document.getElementById('wind').innerText = wind.toFixed(2) + 'mph';
+    document.getElementById('wind').innerText = wind.toFixed(0) + 'mph wind';
     document.getElementById('wind').style.display = 'inline';
 
     if (wind > 20) {
@@ -176,6 +181,12 @@ function showData(data) {
         document.getElementById('gear').className = 'wind';
         document.getElementById('gear').style.display = 'inline';
     } 
+
+    document.getElementById('sunrise').innerText = unixTime(sun_rise);
+    document.getElementById('sunrise').style.display = 'inline';
+
+    document.getElementById('sunset').innerText = unixTime(sun_set);
+    document.getElementById('sunset').style.display = 'inline';
 
     document.getElementById('resultWeather').style.display = 'block';
 
@@ -189,15 +200,36 @@ function switchCF () {
         document.getElementById('lowTemp').innerText = conversion(temp_low);
         document.getElementById('highTemp').innerText = conversion(temp_high);
         document.getElementById('feelTemp').innerText = conversion(temp_feel);
+        document.getElementById('wind').innerText = mph_kph(wind) + 'kph wind';
     } else {
         document.getElementById('lowTemp').innerText = temp_low;
         document.getElementById('highTemp').innerText = temp_high;
         document.getElementById('feelTemp').innerText = temp_feel;
+        document.getElementById('wind').innerText = wind.toFixed(0) + 'mph wind';
     }
 }
 
 function conversion (fahren) {
     return ((fahren - 32) * 5/9).toFixed(2);
+}
+
+function mph_kph (mph) {
+    return (mph * 1.60934).toFixed(0);
+}
+
+function unixTime(time){
+    let unix_timestamp = time
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var date = new Date(unix_timestamp * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ':' + minutes.substr(-2);
+
+    return formattedTime;
 }
 
 function getClothes() {
