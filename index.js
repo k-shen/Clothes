@@ -3,7 +3,6 @@ var preurl="http://api.openweathermap.org/data/2.5/weather?q=";
 var units = '&units=imperial';
 
 var input = document.getElementById('city');
-console.log(input);
 input.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
    event.preventDefault();
@@ -256,7 +255,7 @@ function getBottoms() {
 function getLayers(diff) {
     idx = []
     console.log(tops);
-    for (var i = tops.length - 1; i >= 0; i--) {
+    for (var i = 4; i >= 0; i--) {
         if (diff > tops[i].temp) {
             idx.push(i);
             diff = diff - tops[i].temp;
