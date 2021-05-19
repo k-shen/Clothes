@@ -102,7 +102,7 @@ body {
 .switch {
     position: relative;
     display: inline-block;
-    width: 75px;
+    width: 54px;
     height: 20px;
     bottom: 0px;
     left: 5px;
@@ -128,7 +128,7 @@ body {
     content: "";
     height: 16px;
     width: 16px;
-    left: 2px;
+    left: 2.5px;
     bottom: 2.5px;
     background-color: white;
     -webkit-transition: .4s;
@@ -143,12 +143,12 @@ input:focus + .slider {
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
-    transform: translateX(55px);
+    transform: translateX(34px);
 }
   
 .slider:after
 {
-   content:'imperial';
+   content:'F';
    color: white;
    display: block;
    position: absolute;
@@ -161,17 +161,6 @@ input:checked + .slider:before {
   
 input:checked + .slider:after
 {  
-    content:'metric';
+    content:'C';
 }
 
-.sunrise {
-    color: #fecd45;
-    font-size: 20px;
-    text-shadow: -.3px -.3px 0 rgb(170, 96, 0), .3px -.3px 0 rgb(170, 96, 0), -.3px .3px 0 rgb(170, 96, 0), .3px .3px 0 rgb(170, 96, 0);
-}
-
-.sunset {
-    color: #f37f12;
-    font-size: 20px;
-    text-shadow: -.3px -.3px 0 rgb(170, 48, 0), .3px -.3px 0 rgb(170, 48, 0), -.3px .3px 0 rgb(170, 48, 0), .3px .3px 0 rgb(170, 48, 0);
-}
