@@ -64,6 +64,7 @@ class Clothes {
 
 var tops = [];
 var bottoms = [];
+var reloaded = 0;
 tops.push(new Clothes('short T', 5, 'top'));
 tops.push(new Clothes('long T', 8, 'top'));
 tops.push(new Clothes('hoodie/sweatshirt', 18, 'top'));
@@ -83,9 +84,13 @@ function start() {
     s = checkTime(s);
     document.getElementById('time').innerHTML =
     h + ":" + m + ":" + s;
-    //var t = setTimeout(startTime, 500);
-    document.body.style.backgroundImage = "url('imgs/chill.jpeg')";
-    current_loc();
+    var t = setTimeout(start, 500);
+
+    if (reloaded == 0) {
+        document.body.style.backgroundImage = "url('imgs/chill.jpeg')";
+        current_loc();
+    }
+    reloaded = 1;
 }
 
 function checkTime(i) {
