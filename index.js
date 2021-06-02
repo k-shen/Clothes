@@ -134,7 +134,7 @@ function showData(data) {
         console.log('ERROR');
         return;
     }
-    console.log(result);
+    //console.log(result);
     temp_high = result.main.temp_max;
     temp_low = result.main.temp_min;
     temp_feel = result.main.feels_like;
@@ -143,26 +143,36 @@ function showData(data) {
 
     condition = result.weather[0].main.toLowerCase();
     wind = result.wind.speed;
+    var description = result.weather[0].description.toLowerCase();
 
     if (condition == 'clouds') {
         document.getElementById('condition').className = 'clouds';
-        document.body.style.backgroundImage = "url('imgs/cloudy.gif')";
-
+        if (description == 'few clouds') {
+            document.body.style.backgroundImage = "url('imgs/fewCloud.gif')";
+        } else if (description == 'scattered clouds') {
+            document.body.style.backgroundImage = "url('imgs/scatteredCloud.jpeg')";
+        } else {
+            document.body.style.backgroundImage = "url('imgs/cloudy.gif')";
+        }
+        condition = description
+        
     } else if (condition == 'rain') {
         document.getElementById('condition').className = 'rain';
         document.getElementById('gear').innerText = 'bring rain gear';
         document.getElementById('gear').className = 'rain';
         document.getElementById('gear').style.display = 'inline';
         document.body.style.backgroundImage = "url('imgs/rainy.gif')";
+        condition = description
 
     } else if (condition == 'clear') {
-        condition = 'sun'
+        condition = 'sunny, clear sky'
         document.getElementById('condition').className = 'sun';
         document.body.style.backgroundImage = "url('imgs/sunny.jpeg')";
 
     } else if (condition == 'snow') {
         document.getElementById('condition').className = 'snow';
         document.body.style.backgroundImage = "url('imgs/snowy.gif')";
+        condition = description
 
     } else if (condition == 'thunderstorm') {
         document.getElementById('condition').className = 'thunder';
@@ -170,6 +180,12 @@ function showData(data) {
         document.getElementById('gear').className = 'thunder';
         document.getElementById('gear').style.display = 'inline';
         document.body.style.backgroundImage = "url('imgs/thunderstorm.gif')";
+        condition = description
+
+    } else if (condition == 'mist') {
+        document.getElementById('condition').className = 'rain';
+        document.body.style.backgroundImage = "url('imgs/mist.png')";
+        condition = description
     }
 
     document.getElementById('lowTemp').innerText = temp_low;
@@ -180,6 +196,7 @@ function showData(data) {
 
     document.getElementById('wind').innerText = wind.toFixed(0) + 'mph wind';
     document.getElementById('wind').style.display = 'inline';
+    console.log(description)
 
     if (wind > 20) {
         document.getElementById('gear').innerText = 'bring wind gear';
@@ -206,6 +223,7 @@ function switchCF () {
         document.getElementById('highTemp').innerText = conversion(temp_high);
         document.getElementById('feelTemp').innerText = conversion(temp_feel);
         document.getElementById('wind').innerText = mph_kph(wind) + 'kph wind';
+        
     } else {
         document.getElementById('lowTemp').innerText = temp_low;
         document.getElementById('highTemp').innerText = temp_high;
