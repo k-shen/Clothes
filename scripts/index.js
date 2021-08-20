@@ -4,8 +4,6 @@ var units = '&units=imperial';
 var loc_key = "28bad7be9e191b1481052cdca286dd85";
 var loc_preurl = "http://api.ipstack.com/check?access_key="
 
-
-
 function current_loc () {
     var url = loc_preurl + loc_key;
     fetch(url) 
@@ -87,7 +85,7 @@ function start() {
     var t = setTimeout(start, 500);
 
     if (reloaded == 0) {
-        document.body.style.backgroundImage = "url('imgs/chill.jpeg')";
+        document.body.style.backgroundImage = "url('styles/imgs/chill.jpeg')";
         current_loc();
     }
     reloaded = 1;
@@ -148,11 +146,11 @@ function showData(data) {
     if (condition == 'clouds') {
         document.getElementById('condition').className = 'clouds';
         if (description == 'few clouds') {
-            document.body.style.backgroundImage = "url('imgs/fewCloud.gif')";
+            document.body.style.backgroundImage = "url('styles/imgs/fewCloud.gif')";
         } else if (description == 'scattered clouds') {
-            document.body.style.backgroundImage = "url('imgs/scatteredCloud.jpeg')";
+            document.body.style.backgroundImage = "url('styles/imgs/scatteredCloud.jpeg')";
         } else {
-            document.body.style.backgroundImage = "url('imgs/cloudy.gif')";
+            document.body.style.backgroundImage = "url('styles/imgs/cloudy.gif')";
         }
         condition = description
         
@@ -161,17 +159,17 @@ function showData(data) {
         document.getElementById('gear').innerText = 'bring rain gear';
         document.getElementById('gear').className = 'rain';
         document.getElementById('gear').style.display = 'inline';
-        document.body.style.backgroundImage = "url('imgs/rainy.gif')";
+        document.body.style.backgroundImage = "url('styles/imgs/rainy.gif')";
         condition = description
 
     } else if (condition == 'clear') {
         condition = 'sunny, clear sky'
         document.getElementById('condition').className = 'sun';
-        document.body.style.backgroundImage = "url('imgs/sunny.jpeg')";
+        document.body.style.backgroundImage = "url('styles/imgs/sunny.jpeg')";
 
     } else if (condition == 'snow') {
         document.getElementById('condition').className = 'snow';
-        document.body.style.backgroundImage = "url('imgs/snowy.gif')";
+        document.body.style.backgroundImage = "url('styles/imgs/snowy.gif')";
         condition = description
 
     } else if (condition == 'thunderstorm') {
@@ -179,12 +177,12 @@ function showData(data) {
         document.getElementById('gear').innerText = 'bring rain gear';
         document.getElementById('gear').className = 'thunder';
         document.getElementById('gear').style.display = 'inline';
-        document.body.style.backgroundImage = "url('imgs/thunderstorm.gif')";
+        document.body.style.backgroundImage = "url('styles/imgs/thunderstorm.gif')";
         condition = description
 
     } else if (condition == 'mist') {
         document.getElementById('condition').className = 'rain';
-        document.body.style.backgroundImage = "url('imgs/mist.png')";
+        document.body.style.backgroundImage = "url('styles/imgs/mist.png')";
         condition = description
     }
 
